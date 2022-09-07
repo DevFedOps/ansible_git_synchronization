@@ -1,0 +1,16 @@
+---
+- name: Synchronization repo with local
+  hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - name: get JSON
+      uri: 
+        url: https://github.com/DevFedOps/ansible_git_synchronization.git
+        body_format: json
+        validate_certs: no
+        method: GET
+      register: data
+    
+    - debug: 
+        var: data
