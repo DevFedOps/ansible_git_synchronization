@@ -15,8 +15,8 @@
       register: data
     
     - name: Parse JSON
-      set_fact: 
-        clone_url: "{{ data.json | json_query('clone_url') }}"
+      debug:
+        msg: "{{ data | json_query('json[*].clone_url') }}"
     
-    - debug:  
-        var: clone_url
+    
+    
