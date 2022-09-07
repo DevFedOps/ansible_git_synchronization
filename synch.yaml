@@ -6,11 +6,17 @@
   tasks:
     - name: get JSON
       uri: 
-        url: https://github.com/DevFedOps/ansible_git_synchronization.git
+        url: https://api.github.com/user/repos
         body_format: json
         validate_certs: no
         method: GET
+        headers:
+          Authorization: Bearer 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
       register: data
     
-    - debug: 
-        var: data
+    - name: Parse JSON
+      set_fact: 
+        clone_url: "{{ data.json | json_query('clone_url') }}"
+    
+    - debug:  
+        var: clone_url
