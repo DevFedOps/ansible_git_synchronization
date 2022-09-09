@@ -20,5 +20,8 @@
     
     - name: show clone_url
       debug:
-        var: clone_url
+        msg: "Found url for clone: {{ item }}"
+      loop: "{{ clone_url }}"
+
     
+      
