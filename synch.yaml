@@ -5,23 +5,7 @@
 
   tasks:
     - name: get JSON
-      uri: 
-        url: https://api.github.com/user/repos
-        body_format: json
-        validate_certs: no
-        method: GET
-        headers:
-          Authorization: Bearer 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
-      register: data
-    
-    - name: Parse JSON
-      set_fact:
-        clone_url: "{{ data | json_query('json[*].clone_url') }}"
-    
-    - name: show clone_url
-      debug:
-        msg: "Found url for clone: {{ item }}"
-      loop: "{{ clone_url }}"
+      
 
     
       
