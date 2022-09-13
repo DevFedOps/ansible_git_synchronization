@@ -2,10 +2,11 @@ name: hello-world
 
 on:
   schedule:
-    - cron: '55 23 * * *'
+    - cron: "* * * * *"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: ls -la
+      - name: "List"
+        run: ls -la
