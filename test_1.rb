@@ -1,1 +1,1 @@
-p "Hello FEDOR"
+p "Hello"
